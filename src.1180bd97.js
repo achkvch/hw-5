@@ -71,4 +71,4 @@ var t,e=arguments[3];!function(e,i){"function"==typeof t&&t.amd?t([],function(){
 },{"axios":"dZBD","notiflix":"hWOm"}],"Focm":[function(require,module,exports) {
 "use strict";require("./sass/main.scss");var e=require("./api.js");const t=document.querySelector("#buttonSubmit");t.addEventListener("click",e.searchImage);const r=document.querySelector("#loadMoreButton");r.addEventListener("click",e.nextPage);
 },{"./sass/main.scss":"clu1","./api.js":"LVu9"}]},{},["Focm"], null)
-//# sourceMappingURL=/parcel-project-template/src.1180bd97.js.map
+//# sourceMappingURL=/hw-5/src.1180bd97.js.map
