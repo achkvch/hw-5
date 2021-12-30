@@ -1,8 +1,11 @@
 import './sass/main.scss';
-import {searchImage, nextPage} from './api.js';
+import './api.js';
+import {nextPage, searchImage} from './search.js'
 
-const buttonSearch=document.querySelector('#buttonSubmit');
-buttonSearch.addEventListener('click', searchImage);
-
+const formSearch=document.querySelector('#search-form');
 const buttonNext=document.querySelector('#loadMoreButton');
+const element = document.getElementById("result");
+formSearch.addEventListener('submit', searchImage);
 buttonNext.addEventListener('click', nextPage);
+
+export {buttonNext, element}
