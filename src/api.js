@@ -15,15 +15,19 @@ function apiCall(url, pageNum, perPageNum) {
   })
   .then(res => {
     const respArr = res.data.hits;
-    console.log(res.data)
+    console.log(respArr)
+    
 
     if (element.hasChildNodes()) {
         element.innerHTML = ''
     }
 
-    if (respArr === 0) {
+    if (respArr.length === 0) {
       Notiflix.Notify.failure('Sorry, there are no images matching your search query. Please try again.');
       buttonNext.classList.add("hidden")
+    } else if (respArr.length < perPageNum - 1) {
+      buttonNext.classList.add("hidden");
+      Notiflix.Notify.info("We're sorry, but you've reached the end of search results.");
     } else {
       Notiflix.Notify.success(`Hooray! We found ${res.data.totalHits} images.`)
       buttonNext.classList.remove("hidden")
@@ -66,7 +70,7 @@ function nextPageCall(url, pageNum, perPageNum) {
     }).then(res => {
         const element = document.getElementById("result");
         const respArr = res.data.hits;
-        if (respArr < perPageNum - 1) {
+        if (respArr.length < perPageNum - 1) {
           buttonNext.classList.add("hidden");
           Notiflix.Notify.info("We're sorry, but you've reached the end of search results.");
         }
